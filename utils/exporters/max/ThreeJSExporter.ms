@@ -480,6 +480,9 @@ rollout ThreeJSExporter "ThreeJSExporter"
 
 				-- colors
 
+				if classof mat != VRayMtl then
+				(
+
 				DumpColor mat.diffuse  "colorDiffuse"
 				DumpColor mat.ambient  "colorAmbient"
 				DumpColor mat.specular "colorSpecular"
@@ -497,6 +500,12 @@ rollout ThreeJSExporter "ThreeJSExporter"
 				DumpMap mat.specularMap "mapSpecular"
 				DumpMap mat.bumpMap 	"mapBump"
 				DumpMap mat.opacityMap 	"mapAlpha"
+				)
+				else
+				(
+					DumpColor mat.diffuse "colorDiffuse"
+					DumpMap mat.texmap_diffuse "mapDiffuse"
+				)
 
 			)
 			else
